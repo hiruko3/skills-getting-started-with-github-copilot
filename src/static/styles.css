@@ -74,6 +74,8 @@ section h3 {
   margin-bottom: 8px;
 }
 
+
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -108,6 +110,23 @@ button:hover {
   background-color: #3949ab;
 }
 
+.delete-btn,
+button.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 16px;
+  color: #c0392b;
+  line-height: 1;
+}
+
+.delete-btn:hover,
+button.delete-btn:hover {
+  background: none;
+  color: #922b21;
+}
+
 .message {
   margin-top: 20px;
   padding: 10px;
@@ -134,6 +153,34 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+.participants-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.participants-section strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #1a237e;
+  font-size: 14px;
+}
+
+.participants-list {
+  list-style: none;
+  padding-left: 0;
+  color: #555;
+}
+
+.participants-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 14px;
+  word-break: break-word;
 }
 
 footer {
