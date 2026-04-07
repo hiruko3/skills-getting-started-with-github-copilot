@@ -3,6 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const activitySelect = document.getElementById("activity");
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
+  const themeToggle = document.getElementById("theme-toggle");
+
+  // Load and apply theme from API
+  async function loadTheme() {
+    try {
+      const response = await fetch("/theme");
+      const data = await response.json();
+      applyTheme(data.theme);
+    } catch (error) {
+      console.error("Error loading theme:", error);
+    }
+  }
+
+  function applyTheme(theme) {
+    if (theme === "dark") {
+      document.body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️ Light Mode";
+    } else {
+      document.body.classList.remove("dark-mode");
+      themeToggle.textContent = "🌙 Dark Mode";
+    }
+  }
+
+  // Toggle theme via API
+  themeToggle.addEventListener("click", async () => {
+    const isDark = document.body.classList.contains("dark-mode");
+    const newTheme = isDark ? "light" : "dark";
+    try {
+      const response = await fetch("/theme", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ theme: newTheme }),
+      });
+      const data = await response.json();
+      applyTheme(data.theme);
+    } catch (error) {
+      console.error("Error setting theme:", error);
+    }
+  });
 
   // Function to fetch activities from API
   async function fetchActivities() {
@@ -118,5 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Initialize app
+  loadTheme();
   fetchActivities();
 });

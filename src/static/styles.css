@@ -189,3 +189,105 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background-color: #0d0d3b;
+}
+
+body.dark-mode section {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode section h3 {
+  color: #7986cb;
+  border-bottom-color: #444;
+}
+
+body.dark-mode .activity-card {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark-mode .activity-card h4 {
+  color: #64b5f6;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark-mode button {
+  background-color: #3949ab;
+}
+
+body.dark-mode button:hover {
+  background-color: #5c6bc0;
+}
+
+body.dark-mode .delete-btn,
+body.dark-mode button.delete-btn {
+  color: #ef9a9a;
+  background: none;
+}
+
+body.dark-mode .delete-btn:hover,
+body.dark-mode button.delete-btn:hover {
+  color: #e57373;
+  background: none;
+}
+
+body.dark-mode .participants-section strong {
+  color: #7986cb;
+}
+
+body.dark-mode .participants-list {
+  color: #bdbdbd;
+}
+
+body.dark-mode footer {
+  color: #888;
+}
+
+body.dark-mode .success {
+  background-color: #1b5e20;
+  color: #a5d6a7;
+  border-color: #2e7d32;
+}
+
+body.dark-mode .error {
+  background-color: #b71c1c;
+  color: #ffcdd2;
+  border-color: #c62828;
+}
+
+body.dark-mode .info {
+  background-color: #0d47a1;
+  color: #bbdefb;
+  border-color: #1565c0;
+}
+
+#theme-toggle {
+  margin-top: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}

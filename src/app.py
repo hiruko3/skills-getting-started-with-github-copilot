@@ -8,11 +8,20 @@ for extracurricular activities at Mergington High School.
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
+from pydantic import BaseModel
 import os
 from pathlib import Path
 
 app = FastAPI(title="Mergington High School API",
               description="API for viewing and signing up for extracurricular activities")
+
+# Theme state
+current_theme = {"theme": "light"}
+
+
+class ThemeRequest(BaseModel):
+    theme: str
+
 
 # Mount the static files directory
 current_dir = Path(__file__).parent
@@ -81,6 +90,22 @@ activities = {
 @app.get("/")
 def root():
     return RedirectResponse(url="/static/index.html")
+
+
+@app.get("/theme")
+def get_theme():
+    """Get the current UI theme"""
+    return current_theme
+
+
+@app.put("/theme")
+def set_theme(request: ThemeRequest):
+    """Set the UI theme (light or dark)"""
+    if request.theme not in ("light", "dark"):
+        raise HTTPException(status_code=400, detail="Theme must be 'light' or 'dark'")
+    current_theme["theme"] = request.theme
+    return current_theme
+
 
 
 @app.get("/activities")
